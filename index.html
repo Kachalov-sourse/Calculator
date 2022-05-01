@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            user-select: none; /* supported by Chrome and Opera */
+              -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+
+            background-color: rgb(159, 161, 163);
+        }
+        h1{
+            font: size 18px;
+            text-align:center;
+            font-family:'Arial Narrow Bold';
+        }
+        h1::before{
+            content:"| ";
+            color:blue
+        }
+        h1::after{
+            content:" |";
+            color:blueviolet;
+        }
+        .table{
+            position:absolute;
+            right: 50%;
+            
+            transform: translate(50%,0%);
+
+            justify-content: center;
+           
+           /* border:1px solid black; */
+            max-width: 900px;
+            width:80%;
+            height:auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,200px);
+            gap:2px;
+            
+        }
+        .tableElement{
+               
+            background-color: rgb(131, 146, 141);
+            height: 100px;
+            width: 200px;
+           /* border:1px solid rgb(0, 79, 128); */
+            font-size: 30px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 10px;
+        }
+        .tableElement:hover{
+            background-color: rgb(22, 24, 23);
+            color:bisque;
+        
+        }
+        .inner{
+            position: relative;
+            bottom:-50%;
+            transform: translate(0,-50%)
+        }
+        .tableElement.eauqlElement{
+            grid-column: 3/5;
+            width: 402px;
+        }
+        .numberElement{ /* .tableElement.numberElement hover selection of background disapear*/
+            background-color: rgb(25, 79, 18);
+        }
+        .conductionElement{
+            background-color:rgb(105, 166, 212);
+        }
+        #p_id{
+            text-align: center;
+            font-size: 30px;
+            font-family:monospace;
+            color:rgb(0, 0, 0);
+           
+        }
+        #credits{
+            position: absolute;
+            left: 60%;
+            top: 11%;
+            font-family:sans-serif;
+        }
+        #creditsDesign{
+            position: absolute;
+            left: 60%;
+            top: 14%;
+            font-family:sans-serif;
+        }
+    </style>
+    <script>
+        function clean(){
+            document.getElementById("p_id").textContent=""
+            document.getElementById("p_id").innerText="\n"
+           // window.alert("clean")
+        }
+        function action(arg){
+            if(document.getElementById("p_id").textContent=="Start cliking to start))"){
+                document.getElementById("p_id").textContent=arg
+            }else{document.getElementById("p_id").textContent+=arg}
+            
+        }
+        function MyEvaluate(){
+            let y = document.getElementById("p_id").textContent
+            document.getElementById("p_id").textContent=eval(y)
+           
+        }
+        function root(){
+            let y = document.getElementById("p_id").textContent
+            document.getElementById("p_id").textContent=Math.sqrt(y)
+           // window.alert("root")
+        }
+        function sqare(){
+            let y = document.getElementById("p_id").textContent
+            document.getElementById("p_id").textContent=Math.pow(y,2)
+            //window.alert("square")
+        }
+    </script> 
+</head>
+<body>
+    <h1>The clalculator 2.0</h1>
+    <div style="height: 20px;"></div>
+    <p id="p_id">Start cliking to start))</p>
+    <div class="table">
+        <div class="tableElement numberElement" onclick="action('1')"><div class="inner">1</div></div>
+        <div class="tableElement numberElement" onclick="action('3')"><div class="inner">3</div></div>
+        <div class="tableElement numberElement" onclick="action('2')"><div class="inner">2</div></div>
+        <div class="tableElement conductionElement" onclick="clean()"><div class="inner">C</div></div>
+        <div class="tableElement numberElement" onclick="action('4')"><div class="inner">4</div></div>
+        <div class="tableElement numberElement" onclick="action('5')"><div class="inner">5</div></div>
+        <div class="tableElement numberElement" onclick="action('6')"><div class="inner">6</div></div>
+        <div class="tableElement" onclick="action('+')"><div class="inner">+</div></div>
+        <div class="tableElement numberElement" onclick="action('7')"><div class="inner">7</div></div>
+        <div class="tableElement numberElement" onclick="action('8')"><div class="inner">8</div></div>
+        <div class="tableElement numberElement" onclick="action('9')"><div class="inner">9</div></div>
+        <div class="tableElement" onclick="action('-')"><div class="inner">-</div></div>
+        <div class="tableElement" onclick="action('.')"><div class="inner">.</div></div>
+        <div class="tableElement numberElement" onclick="action('0')"><div class="inner">0</div></div>
+        <div class="tableElement" onclick="action('/')"><div class="inner">/</div></div>
+        <div class="tableElement" onclick="action('*')"><div class="inner">*</div></div>
+        <div class="tableElement" onclick="root()"><div class="inner">&#8730</div></div>
+        <div class="tableElement" onclick="sqare()"><div class="inner">x<sup>2</sup></div></div>
+        <div class="tableElement eauqlElement conductionElement" onclick="MyEvaluate()"><div class="inner">=</div></div>
+
+    </div>
+    <div id="credits">by Anton Kachalov</div>
+    <div id="creditsDesign">design by Kate Ulezko</div>
+    </html>
+</body>
