@@ -63,8 +63,9 @@
             transform: translate(0,-50%)
         }
         .tableElement.eauqlElement{
-            grid-column: 3/5;
-            width: 402px;
+            grid-column: 4/5;
+            grid-row:2/4;
+            height:auto;
         }
         .numberElement{ /* .tableElement.numberElement hover selection of background disapear*/
             background-color: rgb(25, 79, 18);
@@ -90,6 +91,10 @@
             left: 60%;
             top: 14%;
             font-family:sans-serif;
+        }
+        #seven_id{
+            grid-column: 1/2;
+            grid-row:3/4;
         }
     </style>
     <script>
@@ -133,13 +138,13 @@
         <div class="tableElement numberElement" onclick="action('4')"><div class="inner">4</div></div>
         <div class="tableElement numberElement" onclick="action('5')"><div class="inner">5</div></div>
         <div class="tableElement numberElement" onclick="action('6')"><div class="inner">6</div></div>
-        <div class="tableElement" onclick="action('+')"><div class="inner">+</div></div>
-        <div class="tableElement numberElement" onclick="action('7')"><div class="inner">7</div></div>
+        <div class="tableElement numberElement" id="seven_id" onclick="action('7')"><div class="inner">7</div></div>
         <div class="tableElement numberElement" onclick="action('8')"><div class="inner">8</div></div>
         <div class="tableElement numberElement" onclick="action('9')"><div class="inner">9</div></div>
+        <div class="tableElement" onclick="action('+')"><div class="inner">+</div></div>
+        <div class="tableElement numberElement" onclick="action('0')"><div class="inner">0</div></div>
         <div class="tableElement" onclick="action('-')"><div class="inner">-</div></div>
         <div class="tableElement" onclick="action('.')"><div class="inner">.</div></div>
-        <div class="tableElement numberElement" onclick="action('0')"><div class="inner">0</div></div>
         <div class="tableElement" onclick="action('/')"><div class="inner">/</div></div>
         <div class="tableElement" onclick="action('*')"><div class="inner">*</div></div>
         <div class="tableElement" onclick="root()"><div class="inner">&#8730</div></div>
